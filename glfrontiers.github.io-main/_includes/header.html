@@ -1,0 +1,57 @@
+<span class="mobile btn-mobile-menu">
+  <i class="icon icon-list btn-mobile-menu__icon"></i>
+  <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+</span>
+
+{% assign page_year = page.year | default: site.year %}
+<header class="panel-cover" style="background-image: url(/images/cover.png)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+      <div class="panel-main__content">
+        <a href="/" title="link to home of {{ site.title }}">
+          <h1 class="panel-cover__title panel-title">{{ site.title }}</h1>
+        </a>
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">{{ site.description }} {{ page.year | default: site.year }}</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/{{ page_year }}/overview" title="overview" class="blog-button">Overview</a></li>
+              <li class="navigation__item"><a href="/{{ page_year }}/schedule" title="schedule" class="blog-button"><b>Schedule</b></a></li>
+              <li class="navigation__item"><a href="/{{ page_year }}/speakers" title="speakers" class="blog-button">Speakers</a></li>
+              <li class="navigation__item"><a href="/{{ page_year }}/cfp" title="cfp" class="blog-button">Call for Papers</a></li>
+              <li class="navigation__item"><a href="/{{ page_year }}/organizers" title="organizers" class="blog-button">Organizers</a></li>
+              <li class="navigation__item"><a href="/{{ page_year }}/papers" title="papers" class="blog-button">Accepted Papers</a></li>
+              <li class="navigation__item"><a href="/{{ page_year }}/pcom" title="committee" class="blog-button">Committee</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        {% if page_year != site.year %}
+        <div style="margin-top: 30px">
+          {% assign permalink = page.permalink | split: '/' %}
+          <p>This is a webpage for previous events.<br>
+          To view the newest event, click <a href="/{{ site.year }}/{{ permalink[2] }}" title="link to {{ site.year }}" style="text-decoration: underline">here</a>.</p>
+        </div>
+        {% endif %}
+
+      </div>
+      <div class="dropup dropdown-center">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          All GLFrontiers Events
+        </a>
+
+        {% assign permalink = page.permalink | default: '/2022/overview' |  split: '/' %}
+        <ul class="dropdown-menu">
+          {% for year in site.all_years %}
+          <li><a class="dropdown-item" href="/{{ year }}/{{ permalink[2] }}">NeurIPS {{ year }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>

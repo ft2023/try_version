@@ -1,0 +1,25 @@
+.dropup {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+}
+
+.dropdown-menu {
+  display: none;
+  list-style-type: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.collapse:not(.show) {
+  display: none;
+}
+
+.collapsing {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+

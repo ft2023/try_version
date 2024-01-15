@@ -1,0 +1,41 @@
+# Site settings
+title: New Frontiers in Graph Learning (GLFrontiers)
+description: NeurIPS Workshop
+domain: glfrontiers.github.io
+url: https://glfrontiers.github.io
+baseurl: ''
+year: 2023
+all_years:
+  - 2022
+  - 2023
+
+author:
+  name: 'Jiaxuan You & Chaoran Cheng'
+
+defaults:
+  - scope:
+      path: ''
+      type: 'posts'
+    values:
+      layout: 'post'
+
+# Build settings
+destination: _site
+paginate: 10
+permalink: /:year/:title/
+markdown: kramdown
+highlighter: rouge
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
+
+plugins: ['jekyll-paginate']
+include: ['_posts']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
